@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 
 public class Main {
     static final int
-            population_size = 101,
+            population_size = 290,  /*101*/
             elitism_count = 2,
             tournament_size = 5,
             max_generation = 1200;
@@ -49,6 +49,8 @@ public class Main {
         System.out.println("RoomClashes: " + timetable.calcClashes()[1]);
         System.out.println("TeacherClashes: " + timetable.calcClashes()[2]);
         System.out.println("GroupClashes: " + timetable.calcClashes()[3]);
+
+        //kiir();
     }
 
     private static Timetable initializeTimetable() {
@@ -88,7 +90,7 @@ public class Main {
                             num++;
                         }
                         break;
-                    case "timeslot":
+                    case "timeslots":
                         timetable.addTimeslot(num, line[0]);
                         num++;
                         break;
@@ -97,6 +99,7 @@ public class Main {
                         num++;
                         break;
                     default:
+
                         break;
                 }
 

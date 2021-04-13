@@ -35,7 +35,11 @@ public class GeneticAlgorithm {
     }
 
     //base functions
+
     public Population mutatePopulation(Population population, Timetable timetable) {
+        return mutateRandom(population, timetable);
+    }
+    public Population mutateRandom(Population population, Timetable timetable){
         // Initialize new population
         Population newPopulation = new Population(this.populationSize);
 
@@ -59,6 +63,26 @@ public class GeneticAlgorithm {
             // Add individual to population
             newPopulation.setIndividual(populationIndex, individual);
         }
+
+        // Return mutated population
+        return newPopulation;
+    }
+
+    public Population mutateOneGapTimeSlot(Population population, Timetable timetable){
+        // Initialize new population
+        Population newPopulation = new Population(this.populationSize);
+
+
+
+        // Return mutated population
+        return newPopulation;
+    }
+
+    public Population mutateOneClash(Population population, Timetable timetable){
+        // Initialize new population
+        Population newPopulation = new Population(this.populationSize);
+
+
 
         // Return mutated population
         return newPopulation;
