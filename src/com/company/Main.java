@@ -25,8 +25,30 @@ public class Main {
         int generation = 1;
         while (!ga.isTerminationConditionMet(generation, max_generation)
                 && !ga.isTerminationConditionMet(population)) {
+            // Print fitness
+            System.out.println("G" + generation + " Best fitness: " + population.getFittest(0).getFitness());
 
+            // Apply crossover
+            population = ga.crossoverPopulation(population);
+
+            // Apply mutation
+            population = ga.mutatePopulation(population, timetable);
+
+            // Evaluate population
+            ga.evalPopulation(population, timetable);
+
+            // Increment the current generation
+            generation++;
         }
+
+        timetable.createClasses(population.getFittest(0));
+        System.out.println();
+        System.out.println("Solution found in " + generation + " generations");
+        System.out.println("Final solution fitness: " + population.getFittest(0).getFitness());
+        System.out.println("Clashes: " + timetable.calcClashes()[0]);
+        System.out.println("RoomClashes: " + timetable.calcClashes()[1]);
+        System.out.println("TeacherClashes: " + timetable.calcClashes()[2]);
+        System.out.println("GroupClashes: " + timetable.calcClashes()[3]);
     }
 
     private static Timetable initializeTimetable() {
@@ -35,7 +57,7 @@ public class Main {
         inputReader("lessons", timetable);
         inputReader("groups", timetable);
         inputReader("rooms", timetable);
-        inputReader("timeslot", timetable);
+        inputReader("timeslots", timetable);
         timetable.assortRooms();
 
         return timetable;
@@ -45,8 +67,8 @@ public class Main {
         try {
             //fontos hogy a res-ben kell tárolni a fileokat
             int num = 0;
-            InputStream in = Main.class.getResourceAsStream("/" + type + ".txt");
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+            InputStream inputStream = Main.class.getResourceAsStream("/" + type + ".txt");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
             String currentLine = reader.readLine();
             while (currentLine != null) {
                 String[] line = currentLine.split("\t");

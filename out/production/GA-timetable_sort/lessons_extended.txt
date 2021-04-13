@@ -1,0 +1,101 @@
+9a	Magyar nyelv és irodalom	6	Kiss Jenő	NORMAL
+9a	Matematika	3	Nagy Katalin	NORMAL
+9a	Történelem	4	Tóth Anita	NORMAL
+9a	Angol nyelv	3	Kovács Bence	NORMAL
+9a	Fizika	2	Szabó János	PHY
+9a	Kémia	2	Szabó János	CHEM
+9a	Földrajz	2	Tóth Anita	NORMAL
+9a	Ének-zene	1	Horváth Edit	NORMAL
+9a	Vizuális kultúra	1	Horváth Edit	NORMAL
+9a	Tánc és Dráma	1	Kiss Jenő	NORMAL
+9a	Informatika	1	Varga Csilla	IT
+9a	Testnevelés és sport	5	Molnár Bernadett	PE
+9a	Osztályfőnöki	1	Kiss Jenő	NORMAL
+9a	II. idegen nyelv	3	Németh Emília	NORMAL
+10a	Magyar nyelv és irodalom	6	Kiss József	NORMAL
+10a	Angol nyelv	3	Kovács Bence	NORMAL
+10a	II. idegen nyelv	3	Németh Emília	NORMAL
+10a	Matematika	3	Nagy Katalin	NORMAL
+10a	Történelem	5	Tóth Anita	NORMAL
+10a	Biológia	2	Farkas Rozália	BIO
+10a	Fizika	2	Szabó János	PHY
+10a	Kémia	2	Szabó János	CHEM
+10a	Földrajz	2	Farkas Rozália	NORMAL
+10a	Ének-zene	1	Horváth Edit	NORMAL
+10a	Informatika	1	Varga Csilla	IT
+10a	Testnevelés és sport	5	Molnár Ferenc	PE
+10a	Osztályfőnöki	1	Farkas Rozália	NORMAL
+11a	Magyar nyelv és irodalom	7	Kiss József	NORMAL
+11a	Angol nyelv	3	Kovács Bence	NORMAL
+11a	II. idegen nyelv	3	Németh Emilia	NORMAL
+11a	Matematika	3	Nagy Katalin	NORMAL
+11a	Történelem	6	Tóth Anita	NORMAL
+11a	Etika	1	Tóth Anita	NORMAL
+11a	Biológia	2	Farkas Rozália	BIO
+11a	Fizika	2	Szabó János	PHY
+11a	Kémia	2	Szabó János	CHEM
+11a	Földrajz	2	Farkas Rozália	NORMAL
+11a	Művészetek	2	Horváth Edit	NORMAL
+11a	Testnevelés és sport	5	Molnár Bernadett	PE
+11a	Osztályfőnöki	1	Nagy Katalin	NORMAL
+12a	Magyar nyelv és irodalom	8	Kiss Jónás	NORMAL
+12a	Angol nyelv	3	Kovács Bence	NORMAL
+12a	II. idegen nyelv	3	Németh Emília	NORMAL
+12a	Matematika	3	Nagy Katalin	NORMAL
+12a	Történelem	7	Tóth Anita	NORMAL
+12a	Biológia	2	Farkas Rozália	BIO
+12a	Művészetek	2	Horváth Edit	NORMAL
+12a	Életvitel és gyakorlat	1	Farkas Rozália	NORMAL
+12a	Testnevelés és sport	5	Molnár Ferenc	PE
+12a	Osztályfőnöki	1	Tóth Anita	NORMAL
+9b	Magyar nyelv és irodalom	4	Kiss János	NORMAL
+9b	Matematika	5	Nagy Klára	NORMAL
+9b	Történelem	2	Tóth Anna	NORMAL
+9b	Angol	3	Kovács Bálint	NORMAL
+9b	Fizika	4	Szabó Jakab	PHY
+9b	Kémia	2	Szabó Jakab	CHEM
+9b	Földrajz	2	Tóth Anikó	NORMAL
+9b	Ének-zene	1	Horváth Edina	NORMAL
+9b	Vizuális kultúra	1	Horváth Edina	NORMAL
+9b	Tánc és Dráma	1	Kiss János	NORMAL
+9b	Informatika	1	Varga Csilla	IT
+9b	Testnevelés és sport	5	Molnár Bernadett	PE
+9b	Osztályfőnöki	1	Kiss János	NORMAL
+9b	II. idegen nyelv	3	Németh Enikő	NORMAL
+10b	Magyar nyelv és irodalom	4	Kiss Jónás	NORMAL
+10b	Angol nyelv	3	Kovács Bálint	NORMAL
+10b	II. idegen nyelv	3	Németh Enikő	NORMAL
+10b	Matematika	5	Nagy Klára	NORMAL
+10b	Történelem	3	Tóth Anikó	NORMAL
+10b	Biológia	2	Farkas Rozália	BIO
+10b	Fizika	4	Szabó Jakab	PHY
+10b	Kémia	2	Szabó Jakab	CHEM
+10b	Földrajz	2	Farkas Rozália	NORMAL
+10b	Ének-zene	1	Horváth Edina	NORMAL
+10b	Informatika	1	Varga Csilla	IT
+10b	Testnevelés és sport	5	Molnár Ferenc	PE
+10b	Osztályfőnöki	1	Varga Csilla	NORMAL
+11b	Magyar nyelv és irodalom	4	Kiss János	NORMAL
+11b	Angol nyelv	3	Kovács Bálint	NORMAL
+11b	II. idegen nyelv	3	Németh Enikő	NORMAL
+11b	Matematika	6	Nagy Klára	NORMAL
+11b	Történelem	3	Tóth Anikó	NORMAL
+11b	Etika	1	Tóth Anikó	NORMAL
+11b	Biológia	2	Farkas Rozália	BIO
+11b	Fizika	5	Szabó Jakab	PHY
+11b	Kémia	2	Szabó Jakab	CHEM
+11b	Földrajz	2	Farkas Rozália	NORMAL
+11b	Művészetek	2	Horváth Edina	NORMAL
+11b	Testnevelés és sport	5	Molnár Bernadett	PE
+11b	Osztályfőnöki	1	Szabó Jakab	NORMAL
+12b	Magyar nyelv és irodalom	4	Kiss János	NORMAL
+12b	Angol nyelv	3	Kovács Bálint	NORMAL
+12b	II. idegen nyelv	3	Németh Enikő	NORMAL
+12b	Matematika	7	Nagy Klára	NORMAL
+12b	Történelem	3	Tóth Anikó	NORMAL
+12b	Biológia	2	Farkas Rozália	BIO
+12b	Művészetek	2	Horváth Edina	NORMAL
+12b	Életvitel és gyakorlat	1	Farkas Rozália	NORMAL
+12b	Testnevelés és sport	5	Molnár Ferenc	PE
+12b	Osztályfőnöki	1	Tóth Anikó	NORMAL
+12b	Fizika	4	Szabó Jakab	PHY
