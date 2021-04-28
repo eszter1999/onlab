@@ -10,7 +10,7 @@ public class Individual {
     //constructors
     public Individual(Timetable timetable) {
         int numClasses = timetable.getNumClasses();
-        int chromosomeLength = numClasses * 3;
+        int chromosomeLength = numClasses * 2;
         int[] newChromosome = new int[chromosomeLength];
         int chromosomeIndex = 0;
         for (Groups group : timetable.getGroupsAsArray()) {
@@ -24,11 +24,6 @@ public class Individual {
                 // Add random room
                 int roomId = timetable.getRandomRoom(timetable.getLesson(LessonId).getType().toString()).getId();
                 newChromosome[chromosomeIndex] = roomId;
-                chromosomeIndex++;
-
-                // Add teacher
-                Lessons lesson = timetable.getLesson(LessonId);
-                newChromosome[chromosomeIndex] = lesson.getTeacher();
                 chromosomeIndex++;
             }
         }

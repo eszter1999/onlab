@@ -4,18 +4,14 @@ public class Class {
     private final int id;
     private final int groupId;
     private final int lessonId;
-    private int teacherId;
+    private final int teacherId;
     private int timeslotId;
     private int roomId;
 
-    public Class(int id, int groupId, int lessonId){
+    public Class(int id, int groupId, int lessonId, int teacherId){
         this.id = id;
         this.lessonId = lessonId;
         this.groupId = groupId;
-    }
-
-
-    public void addTeacher(int teacherId){
         this.teacherId = teacherId;
     }
 

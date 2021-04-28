@@ -2,7 +2,7 @@ package com.company.data;
 
 public class Groups {
     final private int id;
-    final private String name;    //unique
+    final private String name;
     final private int size;     //number of students in class
     private final int lessonsIds[];
 

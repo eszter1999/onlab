@@ -145,7 +145,8 @@ public class Timetable {
         for (Groups group : this.getGroupsAsArray()) {
             int[] lessonsIds = group.getLessonsIds();
             for (int lessonId : lessonsIds) {
-                classes[classIndex] = new Class(classIndex, group.getId(), lessonId);
+                classes[classIndex] =
+                        new Class(classIndex, group.getId(), lessonId, lessons.get(lessonId).getTeacher());
 
                 // Add timeslot
                 classes[classIndex].addTimeslot(chromosome[chromosomePos]);
@@ -153,10 +154,6 @@ public class Timetable {
 
                 // Add room
                 classes[classIndex].setRoomId(chromosome[chromosomePos]);
-                chromosomePos++;
-
-                // Add teacher
-                classes[classIndex].addTeacher(chromosome[chromosomePos]);
                 chromosomePos++;
 
                 classIndex++;
