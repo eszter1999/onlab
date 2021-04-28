@@ -80,7 +80,8 @@ public class Timetable {
 
             // Check if room is taken
             for (Class classB : this.classes) {
-                if (classA.getRoomId() == classB.getRoomId() && classA.getTimeslotId() == classB.getTimeslotId()
+                if (classA.getRoomId() == classB.getRoomId()
+                        && classA.getTimeslotId() == classB.getTimeslotId()
                         && classA.getId() != classB.getId()) {
                     clashes++;
                     room++;
@@ -90,7 +91,8 @@ public class Timetable {
 
             // Check if professor is available
             for (Class classB : this.classes) {
-                if (classA.getTeacherId() == classB.getTeacherId() && classA.getTimeslotId() == classB.getTimeslotId()
+                if (classA.getTeacherId() == classB.getTeacherId()
+                        && classA.getTimeslotId() == classB.getTimeslotId()
                         && classA.getId() != classB.getId()) {
                     clashes++;
                     teacher++;
@@ -100,7 +102,8 @@ public class Timetable {
 
             // Check if group is available
             for (Class classB : this.classes) {
-                if (classA.getGroupId() == classB.getGroupId() && classA.getTimeslotId() == classB.getTimeslotId()
+                if (classA.getGroupId() == classB.getGroupId()
+                        && classA.getTimeslotId() == classB.getTimeslotId()
                         && classA.getId() != classB.getId()) {
                     clashes++;
                     group++;
@@ -115,6 +118,20 @@ public class Timetable {
         cl[2] = teacher;
         cl[3] = group;
         return cl;
+    }
+
+    public Groups getGroupClash(){
+        for (Class classA : this.classes) {
+            // Check if group is available
+            for (Class classB : this.classes) {
+                if (classA.getGroupId() == classB.getGroupId()
+                        && classA.getTimeslotId() == classB.getTimeslotId()
+                        && classA.getId() != classB.getId()) {
+                        return groups.get(classA.getGroupId());
+                }
+            }
+        }
+        return null;
     }
 
     public void createClasses(Individual individual) {

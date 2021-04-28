@@ -6,7 +6,7 @@ public class GeneticAlgorithm {
     private double crossoverRate;
     private int elitismCount;
     protected int tournamentSize;
-    private final double min_fittness = 1.0;
+    private final double min_fittness = 1000;
 
     //constructor
     public GeneticAlgorithm(int populationSize, double mutationRate, double crossoverRate, int elitismCount,
@@ -37,9 +37,6 @@ public class GeneticAlgorithm {
     //base functions
 
     public Population mutatePopulation(Population population, Timetable timetable) {
-        return mutateRandom(population, timetable);
-    }
-    public Population mutateRandom(Population population, Timetable timetable){
         // Initialize new population
         Population newPopulation = new Population(this.populationSize);
 
@@ -68,25 +65,7 @@ public class GeneticAlgorithm {
         return newPopulation;
     }
 
-    public Population mutateOneGapTimeSlot(Population population, Timetable timetable){
-        // Initialize new population
-        Population newPopulation = new Population(this.populationSize);
-
-
-
-        // Return mutated population
-        return newPopulation;
-    }
-
-    public Population mutateOneClash(Population population, Timetable timetable){
-        // Initialize new population
-        Population newPopulation = new Population(this.populationSize);
-
-
-
-        // Return mutated population
-        return newPopulation;
-    }
+    private Individual mutateRandom(){ return null;    }
 
     public Population crossoverPopulation(Population population) {
         // Create new population
@@ -136,7 +115,7 @@ public class GeneticAlgorithm {
 
         // Calculate fitness
         int clashes = threadTimetable.calcClashes()[0];
-        double fitness = 1 / (double) (clashes + 1);
+        double fitness = 1000 - 100 * clashes;
 
         individual.setFitness(fitness);
 
