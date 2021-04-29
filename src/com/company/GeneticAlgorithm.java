@@ -8,6 +8,7 @@ public class GeneticAlgorithm {
     protected int tournamentSize;
     private final double min_fittness = 1000;
 
+
     //constructor
     public GeneticAlgorithm(int populationSize, double mutationRate, double crossoverRate, int elitismCount,
                             int tournamentSize) {
@@ -25,6 +26,7 @@ public class GeneticAlgorithm {
         return population;
     }
 
+
     //terminate conditions
     public boolean isTerminationConditionMet(int generationsCount, int maxGenerations) {
         return (generationsCount > maxGenerations);
@@ -34,8 +36,8 @@ public class GeneticAlgorithm {
         return population.getFittest(0).getFitness() == min_fittness;
     }
 
-    //base functions
 
+    //base functions
     public Population mutatePopulation(Population population, Timetable timetable) {
         // Initialize new population
         Population newPopulation = new Population(this.populationSize);
@@ -44,18 +46,21 @@ public class GeneticAlgorithm {
         for (int populationIndex = 0; populationIndex < population.size(); populationIndex++) {
             Individual individual = population.getFittest(populationIndex);
 
-            // Create random individual to swap genes with
-            Individual randomIndividual = new Individual(timetable);
+            if(this.elitismCount < populationIndex)
+                individual = mutateRandom(individual, mutationRate, timetable);
 
-            // Loop over individual's genes
-            for (int geneIndex = 0; geneIndex < individual.getChromosomeLength(); geneIndex++) {
-                // Skip mutation if this is an elite individual
-                if (populationIndex > this.elitismCount) {
-                    if (this.mutationRate > Math.random()) {
-                        individual.setGene(geneIndex, randomIndividual.getGene(geneIndex));
-                    }
-                }
-            }
+//            // Create random individual to swap genes with
+//            Individual newIndividual = new Individual(timetable);
+//
+//            // Loop over individual's genes
+//            for (int geneIndex = 0; geneIndex < individual.getChromosomeLength(); geneIndex++) {
+//                // Skip mutation if this is an elite individual
+//                if (populationIndex > this.elitismCount) {
+//                    if (this.mutationRate > Math.random()) {
+//                        individual.setGene(geneIndex, newIndividual.getGene(geneIndex));
+//                    }
+//                }
+//            }
 
             // Add individual to population
             newPopulation.setIndividual(populationIndex, individual);
@@ -65,7 +70,14 @@ public class GeneticAlgorithm {
         return newPopulation;
     }
 
-    private Individual mutateRandom(){ return null;    }
+    private Individual mutateRandom(Individual individual, double rate, Timetable timetable){
+        Individual rndIndividual = new Individual(timetable);
+        for(int geneIndex = 0; geneIndex < individual.getChromosomeLength(); geneIndex++){
+            if (rate > Math.random())
+                individual.setGene(geneIndex, rndIndividual.getGene(geneIndex));
+        }
+        return individual;
+    }
 
     public Population crossoverPopulation(Population population) {
         // Create new population
@@ -103,7 +115,6 @@ public class GeneticAlgorithm {
 
         return newPopulation;
     }
-
 
 
     //for fittness
