@@ -163,6 +163,42 @@ public class Timetable {
         this.classes = classes;
     }
 
+    public int getTimeClash(){
+        for (Class classA : this.classes) {
+            // Check if group is available
+            for (Class classB : this.classes) {
+                if (classA.getGroupId() == classB.getGroupId()
+                        && classA.getTimeslotId() == classB.getTimeslotId()
+                        && classA.getId() != classB.getId()) {
+                    return classA.getId();
+                }
+            }
+        }
+        return -1;
+    }
+    public int getRoomClash(){
+        for (Class classA : this.classes) {
+            // Check if group is available
+            for (Class classB : this.classes) {
+                if (classA.getRoomId() == classB.getRoomId()
+                        && classA.getTimeslotId() == classB.getTimeslotId()
+                        && classA.getId() != classB.getId()) {
+                    return classA.getId();
+                }
+            }
+        }
+        return -1;
+    }
+    public int getTeacherCrash(){
+        for (Class classA :this.classes)
+            for (Class classB : this.classes)
+                if (classA.getTeacherId() == classB.getTeacherId()
+                        && classA.getTimeslotId() == classB.getTimeslotId()
+                        && classA.getId() != classB.getId())
+                    return classA.getId();
+        return -1;
+    }
+
     //randomizer
     public int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);
@@ -269,6 +305,11 @@ public class Timetable {
     }
     public Groups getGroup(int groupId) {
         return this.groups.get(groupId);
+    }
+    public Class getClass(int classId) {
+        for(Class classA : classes)
+            if (classA.getId() == classId) return classA;
+        return null;
     }
 
     //gettes for variables

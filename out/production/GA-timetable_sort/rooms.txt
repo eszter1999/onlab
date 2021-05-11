@@ -1,12 +1,12 @@
-NORMAL	Nagyterem	36
-NORMAL	Kondi	36
-NORMAL	Focipálya	36
-NORMAL	Röpipálya	36
-NORMAL	Kémialabor	36
-NORMAL	Fizikalabor	36
-NORMAL	Bioszlabor	36
-NORMAL	Informatika terem1	36
-NORMAL	Informatika terem2	36
+PE	Nagyterem	36
+PE	Kondi	36
+PE	Focipálya	36
+PE	Röpipálya	36
+CHEM	Kémialabor	36
+PHY	Fizikalabor	36
+BIO	Bioszlabor	36
+IT	Informatika terem1	36
+IT	Informatika terem2	36
 NORMAL	101	36
 NORMAL	102	36
 NORMAL	103	36

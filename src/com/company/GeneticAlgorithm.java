@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.data.RoomType;
+
 public class GeneticAlgorithm {
     private int populationSize;
     private double mutationRate;
@@ -46,23 +48,20 @@ public class GeneticAlgorithm {
         for (int populationIndex = 0; populationIndex < population.size(); populationIndex++) {
             Individual individual = population.getFittest(populationIndex);
 
+            //int[] clashes
+
             if(this.elitismCount < populationIndex)
                 individual = mutateRandom(individual, mutationRate, timetable);
 
-//            // Create random individual to swap genes with
-//            Individual newIndividual = new Individual(timetable);
-//
-//            // Loop over individual's genes
-//            for (int geneIndex = 0; geneIndex < individual.getChromosomeLength(); geneIndex++) {
-//                // Skip mutation if this is an elite individual
-//                if (populationIndex > this.elitismCount) {
-//                    if (this.mutationRate > Math.random()) {
-//                        individual.setGene(geneIndex, newIndividual.getGene(geneIndex));
-//                    }
-//                }
-//            }
+            for(int i = 0; i < 5; i++) {
+                if (mutationRate * 1.5 > Math.random())
+                    individual = mutateTimeClash(individual, timetable);
+                if (mutationRate * 1.5 > Math.random())
+                    individual = mutateRoomClash(individual, timetable);
+                if (mutationRate * 1.1 > Math.random())
+                    individual = mutateTeacherClash(individual, timetable);
+            }
 
-            // Add individual to population
             newPopulation.setIndividual(populationIndex, individual);
         }
 
@@ -75,6 +74,38 @@ public class GeneticAlgorithm {
         for(int geneIndex = 0; geneIndex < individual.getChromosomeLength(); geneIndex++){
             if (rate > Math.random())
                 individual.setGene(geneIndex, rndIndividual.getGene(geneIndex));
+        }
+        return individual;
+    }
+
+    //ez most random
+    private Individual mutateTimeClash(Individual individual, Timetable timetable){
+        //az osztályok létrehozása egy ideiglenes órarendbe a vizsgálathoz
+        Timetable temp = new Timetable(timetable);
+        temp.createClasses(individual);
+        int classId = temp.getTimeClash();
+        if (classId != -1)
+            individual.setGene(classId*2, timetable.getRandomTimeslot().getId());
+        return individual;
+    }
+    private Individual mutateRoomClash(Individual individual, Timetable timetable){
+        Timetable temp = new Timetable(timetable);
+        temp.createClasses(individual);
+        int classId = temp.getRoomClash();
+        if (classId != -1){
+            int roomId = temp.getClass(classId).getRoomId();
+            individual.setGene(classId*2+1, timetable.getRandomRoom(timetable.getRoom(roomId).getType()).getId());
+        }
+        return individual;
+    }
+    private Individual mutateTeacherClash(Individual individual, Timetable timetable){
+        Timetable temp = new Timetable(timetable);
+        temp.createClasses(individual);
+        int classId = temp.getTeacherCrash();
+        if (classId != -1){
+            individual.setGene(classId*2, timetable.getRandomTimeslot().getId());
+            int roomId = temp.getClass(classId).getRoomId();
+            individual.setGene(classId*2+1, timetable.getRandomRoom(timetable.getRoom(roomId).getType()).getId());
         }
         return individual;
     }
