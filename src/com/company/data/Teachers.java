@@ -4,7 +4,7 @@ public class Teachers {
     final int id;
     private final String name;        //unique
 
-    public Teachers(int i, String n, int w){
+    public Teachers(int i, String n){
         id = i;
         name = n;
     }

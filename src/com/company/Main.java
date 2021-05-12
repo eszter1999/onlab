@@ -16,7 +16,7 @@ public class Main {
             mutation_rate = 0.002,
             crossover_rate = 0.95;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 	    Timetable timetable = initializeTimetable();
         GeneticAlgorithm ga = new GeneticAlgorithm(population_size, mutation_rate, crossover_rate, elitism_count, tournament_size);
         Population population = ga.initPopulation(timetable);
@@ -50,7 +50,7 @@ public class Main {
         System.out.println("TeacherClashes: " + timetable.calcClashes()[2]);
         System.out.println("GroupClashes: " + timetable.calcClashes()[3]);
 
-        //kiir();
+        new ExcelExport(timetable);
     }
 
     private static Timetable initializeTimetable() {
@@ -81,7 +81,7 @@ public class Main {
                         num++;
                         break;
                     case "teachers":
-                        timetable.addTeacher(num, line[0], Integer.parseInt(line[1]));
+                        timetable.addTeacher(num, line[0]);
                         num++;
                         break;
                     case "lessons":

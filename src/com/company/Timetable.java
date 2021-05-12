@@ -22,7 +22,7 @@ public class Timetable {
     private ArrayList<Integer> phy;
     private ArrayList<Integer> chem;
 
-    private Class classes[];
+    private Class[] classes;
     private int numClasses = 0;
 
     //constructor
@@ -243,7 +243,7 @@ public class Timetable {
         }
 
         int numClasses = 0;
-        Groups groups[] = this.groups.values().toArray(new Groups[this.groups.size()]);
+        Groups[] groups = this.groups.values().toArray(new Groups[this.groups.size()]);
         for (Groups group : groups) {
             numClasses += group.getLessonsIds().length;
         }
@@ -251,18 +251,16 @@ public class Timetable {
 
         return this.numClasses;
     }
-    public ArrayList<Integer> getRooms(RoomType room) {
-        ArrayList<Integer> r = new ArrayList<>();
-        for (Map.Entry<Integer, Rooms> entry : rooms.entrySet()) {
-            Rooms value = entry.getValue();
-            if (value.getType().equals(room.toString())) {
-                r.add(value.getId());
-            }
-        }
-        return r;
+    public Class getClass(int classId) {
+        for(Class classA : classes)
+            if (classA.getId() == classId) return classA;
+        return null;
     }
     public Groups[] getGroupsAsArray() {
         return this.groups.values().toArray(new Groups[0]);
+    }
+    public Groups getGroup(int groupId) {
+        return this.groups.get(groupId);
     }
     public int[] getLessons(String name){
         ArrayList<Integer> lesson = new ArrayList<>();
@@ -294,6 +292,9 @@ public class Timetable {
         }
         return 0;
     }
+    public Teachers getTeacher(int teacherId) {
+        return this.teachers.get(teacherId);
+    }
     public Rooms getRoom(int id){
         for (Map.Entry<Integer, Rooms> entry : rooms.entrySet()) {
             Rooms value = entry.getValue();
@@ -303,14 +304,10 @@ public class Timetable {
         }
         return null;
     }
-    public Groups getGroup(int groupId) {
-        return this.groups.get(groupId);
+    public Timeslots getTimeslot(int timeslotId) {
+        return this.timeslots.get(timeslotId);
     }
-    public Class getClass(int classId) {
-        for(Class classA : classes)
-            if (classA.getId() == classId) return classA;
-        return null;
-    }
+
 
     //gettes for variables
     private HashMap<Integer, Lessons> getLessons() {
@@ -328,13 +325,25 @@ public class Timetable {
     private HashMap<Integer, Timeslots> getTimeslots() {
         return this.timeslots;
     }
-
+    public ArrayList<Integer> getRooms(RoomType room) {
+        ArrayList<Integer> r = new ArrayList<>();
+        for (Map.Entry<Integer, Rooms> entry : rooms.entrySet()) {
+            Rooms value = entry.getValue();
+            if (value.getType().equals(room.toString())) {
+                r.add(value.getId());
+            }
+        }
+        return r;
+    }
+    public Class[] getClasses() {
+        return this.classes;
+    }
     //adders for the input
     public void addRoom(int roomId, RoomType type, String roomName, int capacity) {
         this.rooms.put(roomId, new Rooms(roomId, type, roomName, capacity));
     }
-    public void addTeacher(int teacherId, String teacherName, int working_hour) {
-        this.teachers.put(teacherId, new Teachers(teacherId, teacherName, working_hour));
+    public void addTeacher(int teacherId, String teacherName) {
+        this.teachers.put(teacherId, new Teachers(teacherId, teacherName));
     }
     public void addLesson(int lessonId, String group, String lessonName, int LessonNPW, int teacher, RoomType type){
         this.lessons.put(lessonId, new Lessons(lessonId, group, lessonName, LessonNPW, teacher, type));
