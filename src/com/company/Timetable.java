@@ -120,20 +120,6 @@ public class Timetable {
         return cl;
     }
 
-    public Groups getGroupClash(){
-        for (Class classA : this.classes) {
-            // Check if group is available
-            for (Class classB : this.classes) {
-                if (classA.getGroupId() == classB.getGroupId()
-                        && classA.getTimeslotId() == classB.getTimeslotId()
-                        && classA.getId() != classB.getId()) {
-                        return groups.get(classA.getGroupId());
-                }
-            }
-        }
-        return null;
-    }
-
     public void createClasses(Individual individual) {
         // Init classes
         Class[] classes = new Class[this.getNumClasses()];

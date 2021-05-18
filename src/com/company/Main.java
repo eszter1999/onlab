@@ -20,6 +20,7 @@ public class Main {
 	    Timetable timetable = initializeTimetable();
         GeneticAlgorithm ga = new GeneticAlgorithm(population_size, mutation_rate, crossover_rate, elitism_count, tournament_size);
         Population population = ga.initPopulation(timetable);
+        ga.evalPopulation(population, timetable);
 
         // Keep track of current generation
         int generation = 1;

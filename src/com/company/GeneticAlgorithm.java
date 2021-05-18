@@ -25,6 +25,7 @@ public class GeneticAlgorithm {
     public Population initPopulation(Timetable timetable) {
         // Initialize population
         Population population = new Population(this.populationSize, timetable);
+
         return population;
     }
 
@@ -33,7 +34,6 @@ public class GeneticAlgorithm {
     public boolean isTerminationConditionMet(int generationsCount, int maxGenerations) {
         return (generationsCount > maxGenerations);
     }
-
     public boolean isTerminationConditionMet(Population population) {
         return population.getFittest(0).getFitness() == min_fittness;
     }
@@ -47,8 +47,6 @@ public class GeneticAlgorithm {
         // Loop over current population by fitness
         for (int populationIndex = 0; populationIndex < population.size(); populationIndex++) {
             Individual individual = population.getFittest(populationIndex);
-
-            //int[] clashes
 
             if(this.elitismCount < populationIndex)
                 individual = mutateRandom(individual, mutationRate, timetable);
@@ -68,7 +66,6 @@ public class GeneticAlgorithm {
         // Return mutated population
         return newPopulation;
     }
-
     private Individual mutateRandom(Individual individual, double rate, Timetable timetable){
         Individual rndIndividual = new Individual(timetable);
         for(int geneIndex = 0; geneIndex < individual.getChromosomeLength(); geneIndex++){
@@ -77,8 +74,6 @@ public class GeneticAlgorithm {
         }
         return individual;
     }
-
-    //ez most random
     private Individual mutateTimeClash(Individual individual, Timetable timetable){
         //az osztályok létrehozása egy ideiglenes órarendbe a vizsgálathoz
         Timetable temp = new Timetable(timetable);
